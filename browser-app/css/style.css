@@ -1,0 +1,184 @@
+
+body{
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+h1{
+  font-size: 20px;
+  font-weight: bold;
+  width: 680px;
+  padding: 20px 30px;
+  color: #ffffff;
+  background: #f4a261;
+}
+
+.grouph1{
+  background: #e9c46a;
+}
+
+.panel{
+  width: 300px;
+  height: 600px;
+  float: left;
+  display: inline-block;
+  background: #264653;
+  margin-right: 20px;
+  padding: 20px 30px;
+  color: #ffffff;
+}
+
+#yourArduino{
+  height: 600px;
+}
+
+#arduinoReceived{
+  border: 1px #abbfc7 solid;
+  padding: 5px;
+  width: 100px;
+  height: 20px;
+  margin-top: 10px;
+  float: left;
+}
+
+
+
+#arduinoSettings{
+  clear: both;
+  margin-top: 20px;
+  float: left;
+  width: 100%;
+}
+
+.panelHeader{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  clear: both;
+}
+
+#findPartner{
+  display: block;
+  margin-top: 15px;
+}
+
+#arduinoMessageSection{
+  margin-top: 30px;
+  display: none;
+}
+
+.slider{
+  width: 230px;
+}
+
+.sliderHolder{
+  margin-bottom: 20px;
+  width: 230px;
+}
+
+.sliderTop{
+  width: 230px;
+}
+
+.sliderOutput{
+  float: right;
+  display: block;
+}
+
+button{
+  display: block;
+  margin-top: 25px;
+  height: 35px;
+  width: 120px;
+  font-size: 15px;
+}
+
+select{
+  width: 120px;
+  height: 30px;
+  font-size: 15px;
+}
+
+#senderCheckbox{
+  width: 15px;
+  height: 15px;
+}
+
+.checkboxHolder{
+  margin-top: 30px;
+}
+
+#sendMessage_button{
+  margin-top: 20px;
+}
+
+.inputText{
+  margin-bottom: 9px;
+  margin-top: 25px;
+}
+
+input{
+  height: 30px;
+  font-size: 20px;
+}
+
+#teamSelect{
+  margin-bottom: 20px;
+}
+
+#paired{
+  display: none;
+}
+
+#grouped{
+  display: none;
+}
+
+#pairingSetup, #paired, #grouped{
+  background: #2a9d8f;
+}
+
+#toSend{
+  margin-top: 40px;
+}
+
+#fromPartner{
+  margin-top: 40px;
+}
+
+#messageReceived{
+  margin: 0px 0px;
+  display: block;
+  border: 1px #abbfc7 solid;
+  padding: 5px;
+  width: 290px;
+  min-height: 20px;
+  max-height: 150px;
+  overflow: auto;
+  margin-top: 10px;
+  clear: both;
+}
+
+.infoText{
+  font-size: 14px;
+}
+
+#disconnectedMessage{
+  padding: 3px;
+  color: #222222;
+  background: #e9c46a;
+  display: none;
+}
+
+
+#groupSettings{
+  display: none;
+}
+
+
+#groupIDs{
+  height: 100px;
+  padding: 5px;
+  margin: 0px;
+  border: 1px #114a43 solid;
+  overflow-y:auto;
+}

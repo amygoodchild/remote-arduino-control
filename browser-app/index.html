@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5.serialserver@0.0.28/lib/p5.serialport.js"></script>
+    <script src="scripts/commsHandler.js"></script>
+    <script src="scripts/commsUI.js"></script>
+    <script src="scripts/arduinoHandler.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Arduino Comms</title>
+  </head>
+
+  <body>
+    <h1>1-1 Communication</h1>
+    <div id="yourArduino" class="panel">
+      <p class="panelHeader">Your Arduino</p>
+      <p>
+        <span class="infoText">Status:</span><br>
+        <span id="arduinoStatus">Attempting to connect...</span></p>
+      <p id="arduinoMessageSection">
+        <span class="infoText">Message from your arduino:</span><br>
+        <span id="arduinoReceived"></span>
+      </p>
+      <p id="arduinoSettings">
+        <p class="panelHeader">Settings</p>
+        <div class="sliderHolder">
+          <div class="sliderTop">
+            <span class="infoText">Read Delay:</span>
+            <span id="readDelayOutput" class="sliderOutput">10</span>
+          </div>
+          <input type="range" min="0" max="3000" value="10" class="slider" id="readDelay">
+
+        </div>
+      </p>
+    </div>
+
+    <div id="pairingSetup" class="panel">
+      <p class="panelHeader">Connect to Partner</p>
+      <p id="disconnectedMessage"><p>
+      <p class="inputText">Team number:</p>
+      <select id="team">
+        <option value="Select">--Select--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">11</option>
+        <option value="22">12</option>
+        <option value="23">13</option>
+        <option value="24">14</option>
+        <option value="25">25</option>
+      </select>
+
+      <p class="inputText">Secret word:</p>
+      <input type="text" id="secretWord" />
+      <span class="infoText"><br>(agree with your partner)</span>
+
+      <button id="findPartner_button" value="Find partner" disabled>Find Partner</button>
+
+      <p id="mismatchMessage"></p>
+      <p id="message"></p>
+      <p id="errorMessage"></p>
+    </div>
+
+    <div id="paired" class="panel">
+      <div id="pairingInfo">
+        <p class="panelHeader">Connected to Partner</p>
+        <p><span class="infoText">Your ID:</span><br>
+          <span id="myID"></span>
+        </p>
+        <p><span class="infoText">Partner's ID:</span><br>
+          <span id="partnerID"></span>
+        </p>
+      </div>
+
+      <div id="toSend">
+        <p class="panelHeader">Messages</p>
+        <p class="inputText">Send a message to your partner:</p>
+        <input type="text" id="messageToSend" />
+        <button id="sendMessage_button">Send</button>
+      </div>
+
+      <div id="fromPartner">
+        <p>Message from your partner:<br>
+          <span id="messageReceived"></span><br>
+          <span class="infoText">(Will be sent to your arduino if it is connected)</span>
+        </p>
+      </div>
+
+  </body>
+</html>

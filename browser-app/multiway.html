@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5.serialserver@0.0.28/lib/p5.serialport.js"></script>
+    <script src="scripts/commsHandler.js"></script>
+    <script src="scripts/commsUI.js"></script>
+    <script src="scripts/arduinoHandler.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Arduino Comms</title>
+  </head>
+
+  <body>
+    <h1 class="grouph1">Group Communication</h1>
+    <div id="yourArduino" class="panel">
+      <p class="panelHeader">Your Arduino</p>
+      <p>
+        <span class="infoText">Status:</span><br>
+        <span id="arduinoStatus">Attempting to connect...</span></p>
+      <p id="arduinoMessageSection">
+        <span class="infoText">Message from your arduino:</span><br>
+        <span id="arduinoReceived"></span>
+      </p>
+      <p id="arduinoSettings">
+        <p class="panelHeader">Settings</p>
+        <div class="sliderHolder">
+          <div class="sliderTop">
+            <span class="infoText">Read Delay:</span>
+            <span id="readDelayOutput" class="sliderOutput">10</span>
+          </div>
+          <input type="range" min="0" max="3000" value="10" class="slider" id="readDelay">
+
+        </div>
+
+        <!--<div class="sliderHolder">
+          <div class="sliderTop">
+            <span class="infoText">Lerp Readings:</span>
+            <span id="lerpValuesOutput" class="sliderOutput">0</span>
+          </div>
+          <input type="range" min="0" max="1" value="0" step="0.05" class="slider" id="lerpValues">
+        </div>-->
+      </p>
+
+    </div>
+
+    <div id="pairingSetup" class="panel">
+      <p class="panelHeader">Connect to Group</p>
+      <p id="disconnectedMessage"><p>
+      <p class="inputText">Group:</p>
+      <div id="groupBlank">No groups open</div>
+
+      <div id="groupSettings">
+        <select id='groupSelect'>
+          <option value='Select'>--Select--</option>
+        </select>
+
+        <p class="inputText">Secret word:</p>
+        <input type="text" id="groupSecretWord" /><br>
+        <span class="infoText">(defined when group is set up by admin)</span>
+
+        <div class="checkboxHolder">
+          <input type="checkbox" id="senderCheckbox" value="senderCheckbox">
+          <label for="controllerRequest">I want to be the controller</label>
+        </div>
+
+        <button id="groupConnect_button" value="Find Group" disabled>Find Group</button>
+      </div>
+      <p id="mismatchMessage"></p>
+      <p id="message"></p>
+      <p id="errorMessage"></p>
+    </div>
+
+
+    <div id="grouped" class="panel">
+      <div id="groupInfo">
+        <p class="panelHeader">Connected to Group</p>
+        <p><span class="infoText">Your ID:</span><br>
+          <span id="myID"></span>
+        </p>
+        <p><span class="infoText" id="groupControllerHeader">Group Controller:</span><br>
+          <span id="groupController"></span>
+        </p>
+        <p><span class="infoText" id="groupIDsHeader">Group Members:</span><br>
+          <div id="groupIDs"></div>
+        </p>
+
+      </div>
+
+      <div id="toSend">
+        <p class="panelHeader">Messages</p>
+        <span class="infoText">Messages from your arduino will be sent automatically</span>
+        <p class="inputText">Manually end a message to your group:</p>
+        <input type="text" id="messageToSend" />
+        <button id="sendGroupMessage_button">Send</button>
+      </div>
+
+      <div id="fromGroup">
+        <p>Message from your group controller:<br>
+          <span id="messageReceived"></span><br>
+          <span class="infoText">(Will be sent to your arduino if it is connected)</span>
+        </p>
+      </div>
+
+  </body>
+</html>
